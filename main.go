@@ -10,7 +10,7 @@ import (
 func main() {
 	// Checking if the correct number of arguments is provided
 	if len(os.Args) < 2 {
-		fmt.Println("Wrong use of the tool")
+		fmt.Println("Please put a valid argument.")
 		return
 	}
 	// Get the input string from command line arguments
