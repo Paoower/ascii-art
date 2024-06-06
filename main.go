@@ -4,6 +4,7 @@ import (
 	src "ascii-art/src"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -14,18 +15,19 @@ func main() {
 		return
 	}
 	// Get the input string from command line arguments
-	input := os.Args[1:]
-	content := src.FileOpen("banners/shadow.txt")
+	input := os.Args[1]
+	content := src.FileOpen("banners/standard.txt")
 
-	for _, word := range input {
-		if word == "\n" {
-			fmt.Println("\n")
-			continue
+	lines := make([]string, 8)
+
+	for _, char := range input {
+		c := strings.Split(src.GetLetter(content, int(char)), "\n")
+		for i, l := range c {
+			lines[i] += l
 		}
-		for _, char := range word {
-			fmt.Println(src.GetLetter(content, int(char)))
-		}
-		//Add a space after each word
-		fmt.Println(src.GetLetter(content, 32))
 	}
+	for _, line := range lines {
+		fmt.Println(line)
+	}
+
 }
