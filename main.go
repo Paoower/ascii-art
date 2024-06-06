@@ -4,24 +4,26 @@ import (
 	src "ascii-art/src"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
-
 	// Checking if the correct number of arguments is provided
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: go run . <string>")
+		fmt.Println("Wrong use of the tool")
 		return
 	}
 	// Get the input string from command line arguments
 	input := os.Args[1]
-	// Load the standard banner file
-	bannerFile := "banners/standard.txt"
-	content := src.FileOpen(bannerFile)
-	// Generate ASCII art
-	finalOutput := src.Stringtoart(input, content)
-	// Print the final output
-	for _, line := range finalOutput {
+
+	lines := make([]string, 0)
+	words := strings.Split(input, "\\n")
+
+	for _, word := range words {
+		lines = append(lines, src.GetWord(word)...)
+	}
+
+	for _, line := range lines {
 		fmt.Println(line)
 	}
 }
