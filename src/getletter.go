@@ -6,6 +6,7 @@ import (
 
 const LETTER_HEIGHT = 8
 
+// The GetLetter function in getletter.go is responsible for retrieving the ASCII representation of a single character from a banner.
 func GetLetter(content string, ascii int) string {
 	str := ""
 	lines := strings.Split(content, "\n")
