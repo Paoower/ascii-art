@@ -7,5 +7,9 @@ import (
 
 func main() {
 	content := src.FileOpen("banners/shadow.txt")
-	fmt.Println(src.GetLetter(content, 98))
+	test := "hello"
+
+	for _, char := range test {
+		fmt.Println(src.GetLetter(content, int(char)))
+	}
 }
