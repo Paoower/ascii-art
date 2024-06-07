@@ -19,12 +19,15 @@ func main() {
 	if len(os.Args) == 3 {
 		style = os.Args[2]
 	}
+
+	// Use correct Banner files
 	bannerFile, err := src.GetBannerFile(style)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
+	// Store line and get line of input
 	lines := make([]string, 0)
 	words := strings.Split(input, "\\n")
 
