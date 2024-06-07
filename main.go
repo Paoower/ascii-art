@@ -32,10 +32,16 @@ func main() {
 	words := strings.Split(input, "\\n")
 
 	for _, word := range words {
-		lines = append(lines, src.GetWord(word, bannerFile)...)
+		if word == "" {
+			lines = append(lines, "")
+		} else {
+			lines = append(lines, src.GetWord(word, bannerFile)...)
+		}
+
 	}
 
 	for _, line := range lines {
 		fmt.Println(line)
 	}
+
 }
