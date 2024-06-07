@@ -13,7 +13,7 @@ func TestHello(t *testing.T) {
 	words := strings.Split(input, "\\n")
 
 	for _, word := range words {
-		lines = append(lines, src.GetWord(word)...)
+		lines = append(lines, src.GetWord(word, "banners/standard.txt")...)
 	}
 
 	for i, line := range lines {
@@ -31,7 +31,7 @@ func TestHelloThere(t *testing.T) {
 	words := strings.Split(input, "\\n")
 
 	for _, word := range words {
-		lines = append(lines, src.GetWord(word)...)
+		lines = append(lines, src.GetWord(word, "banners/standard.txt")...)
 	}
 
 	for i, line := range lines {

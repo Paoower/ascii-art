@@ -4,9 +4,9 @@ import (
 	"strings"
 )
 
-func GetWord(input string) []string {
+func GetWord(input string, bannerFile string) []string {
 	lines := make([]string, 8)
-	content := FileOpen("banners/standard.txt")
+	content := FileOpen(bannerFile)
 
 	for _, char := range input {
 		c := strings.Split(GetLetter(content, int(char)), "\n")
