@@ -1,16 +1,40 @@
-# Ascii Art
+# ASCII Art
 
-It's a program which consists in receiving a string as an argument and outputting the string in a graphic representation using ASCII.
-An optional arguments is the style of the output ASCII art. You can choose between standard, shadow and thinkerjoy.
+A command-line utility that transforms text into ASCII art patterns.
 
-## **[main.go](main.go)**
+## Description
 
-First, arguments are being handled, and saved correctly. Each line of the input string is turned into ASCII art character by character.
+This program converts input strings into stylized ASCII art text using predefined banner templates. It reads character patterns from banner files and outputs text in various ASCII art styles.
 
-## **[src/getword.go](src/getword.go)**
+## Features
 
-The ```GetWord``` function takes a string as argument and applies the ```GetLetter``` function to each character. It returns a slice of string representing each line to display.
+- Transform input text to ASCII art
+- Support for multiple banner styles (standard, shadow, thinkertoy)
+- Clean and efficient Go implementation
 
-## **[src/getletter.go](src/getletter.go)**
+## Usage
 
-The ```GetLetter``` function takes an int as argument repesenting the ASCII code of the character that needs to be turned into ASCII art. Its position in the banner file is calculated. A string is returned containing the ASCII art for the provided character.
+```bash
+go run . [STRING] [BANNER]
+```
+
+Example:
+```bash
+go run . "Hello World" standard
+```
+
+## Banner Options
+
+- `standard`: Classic ASCII representation
+- `shadow`: Text with shadow effect
+- `thinkertoy`: Minimalist style using special characters
+
+## Implementation Details
+
+- Reads banner templates from text files
+- Handles newline characters in input strings
+- Processes each character to create multi-line ASCII output
+
+## Requirements
+
+- Go 1.13 or higher
